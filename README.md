@@ -49,3 +49,13 @@ services:
 
     # spring.jpa.show-sql=true
 ```
+
+#### Desafios
+Giulina Bezerra
+```
+https://www.youtube.com/watch?v=ifgjBx74eOA&list=PLiFLtuN04BS1c-JvhKFxYyeD-GVtnwUcx
+```
+* 5. Testes
+```
+https://www.youtube.com/watch?v=e6NeKpATWAU&t=14s
+```
