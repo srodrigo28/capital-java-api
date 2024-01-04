@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_USER=spring_root
+      - MYSQL_PASSWORD=spring_root
+      - MYSQL_DATABASE=db_capital
+      - MYSQL_ROOT_PASSWORD=spring_root
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
