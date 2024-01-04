@@ -6,10 +6,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.app100.capitalinvest.dtos.CreateUserDto;
+import com.app100.capitalinvest.dtos.UpdatedUserDto;
 import com.app100.capitalinvest.entity.User;
 import com.app100.capitalinvest.repository.UserRepository;
 
@@ -39,5 +39,30 @@ public class UserService {
 
     public List<User> listUsers(){
         return userRepository.findAll();
+    }
+
+    public void updatedUserById(String userId, UpdatedUserDto uptadatedDTO){
+        var id = UUID.fromString(userId);
+        var useEntity = userRepository.findById(id);
+
+        if(useEntity.isPresent()){
+            var user = useEntity.get();
+
+            if(uptadatedDTO.username() != null){
+                user.setUsername(uptadatedDTO.username());
+            }
+            if(uptadatedDTO.password() != null){
+                user.setPassword(uptadatedDTO.password());
+            }
+            userRepository.save(user);
+        }
+    }
+
+    public void deleteUserById(String userId){
+        var id = UUID.fromString(userId);
+        var userExists = userRepository.existsById(id);
+        if(userExists){
+            userRepository.deleteById(id);
+        }
     }
 }
