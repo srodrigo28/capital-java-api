@@ -1,4 +1,6 @@
 ### Java Investimentos
+#### Melhores pontos
+  * Docker compose com mysql
 
 * Link:: 
 ```
